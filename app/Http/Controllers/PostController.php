@@ -41,6 +41,7 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
+        $post = Post::find($id);
         return $post;
     }
 
@@ -57,6 +58,7 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $post = Post::find($id);
         $request->validate([
             'title' => 'required',
             'body' => 'required',
@@ -72,6 +74,7 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
+        $post = Post::find($id);
         $post->delete();
         return response()->json(null, 204);
     }
